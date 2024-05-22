@@ -7,8 +7,9 @@ app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///sample.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 app.app_context().push()
-db=SQLAlchemy(app)
+db = SQLAlchemy(app)
 db.create_all()
+
 
 class User(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -29,15 +30,12 @@ def user():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({"message":"Created.."})
+    
 
 
 @app.route('/add')
 def fun():
     return "I am add"
-
-
-
 
 
 
